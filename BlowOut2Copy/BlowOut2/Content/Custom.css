@@ -1,0 +1,31 @@
+﻿body {
+}
+
+.myFooterText{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.jumbotron{
+    background-color: #808080;
+    background-image: url('img/TrumpetBackground.png');
+}
+
+.jumbotron h1{
+    font-weight: 600;
+    color: #000000;
+}
+
+.jumbotron p{
+    font-weight: 600;
+    color: #000000;
+}
+
+.caption{
+    text-align: center;
+}
+
+.btn btn-lg {
+    color: #000000;
+    background-color: #ffffff;
+    border-color: #303030;
+}

@@ -1,0 +1,106 @@
+﻿@model IEnumerable<BlowOut2.Models.Instrument>
+@{
+    ViewBag.Title = "Rentals";
+}
+<ol class="breadcrumb">
+    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+    <li class="active">@Html.ActionLink("Rentals", "Rentals", "Instruments")</li>
+</ol>
+<h2>Instrument Rentals</h2>
+
+<div class="container">
+	<div class="row">
+    @foreach (var item in Model)
+	{
+        if(item.condition == "New")
+        {
+            <div class="col-md-4">
+                <div class="thumbnail">
+                    <img src="@Html.DisplayFor(modelItem => item.imgPath)">
+                    <div class="caption">
+                        <h3>@Html.DisplayFor(modelItem => item.instrumentName)</h3>
+                        <p>
+                            <button type="button" class="btn btn-lg" onclick="location.href='@Url.Action("RentalItem", "Instruments", new { insName = item.instrumentName })'">Get More Details</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        }
+        
+	}
+    </div>
+</div>
+
+<!--<div class="row">
+    <div class="col-md-4">
+        <div class="thumbnail">
+            <img src="~/Content/img/trumpet.png" alt="Trumpet">
+            <div class="caption">
+                <h3>Trumpet</h3>
+                <p>
+                    <button type="button" class="btn btn-lg" onclick="location.href='@*@Url.Action("RentalItem", "Home", new { name = "Trumpet" })*@'">Get More Details</button>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="thumbnail">
+            <img src="~/Content/img/trombone.png" alt="Trombone">
+            <div class="caption">
+                <h3>Trombone</h3>
+                <p>
+                    <button type="button" class="btn btn-lg" onclick="location.href='@*@Url.Action("RentalItem", "Home", new { name = "Trombone" })*@'">Get More Details</button>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="thumbnail">
+            <img src="~/Content/img/tuba.png" alt="Tuba">
+            <div class="caption">
+                <h3>Tuba</h3>
+                <p>
+                    <button type="button" class="btn btn-lg" onclick="location.href='@*@Url.Action("RentalItem", "Home", new { name = "Tuba" })*@'">Get More Details</button>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<div class="row">
+    <div class="col-md-4">
+        <div class="thumbnail">
+            <img src="~/Content/img/flute.png" alt="Flute">
+            <div class="caption">
+                <h3>Flute</h3>
+                <p>
+                    <button type="button" class="btn btn-lg" onclick="location.href='@*@Url.Action("RentalItem", "Home", new { name = "Flute" })*@'">Get More Details</button>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="thumbnail">
+            <img src="~/Content/img/clarinet.png" alt="Clarinet">
+            <div class="caption">
+                <h3>Clarinet</h3>
+                <p>
+                    <button type="button" class="btn btn-lg" onclick="location.href='@*@Url.Action("RentalItem", "Home", new { name = "Clarinet" })*@'">Get More Details</button>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="thumbnail">
+            <img src="~/Content/img/saxophone.png" alt="Saxophone">
+            <div class="caption">
+                <h3>Saxophone</h3>
+                <p>
+                    <button type="button" class="btn btn-lg" onclick="location.href='@*@Url.Action("RentalItem", "Home", new { name = "Saxophone" })*@'">Get More Details</button>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+-->

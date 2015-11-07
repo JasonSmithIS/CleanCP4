@@ -1,0 +1,57 @@
+﻿@model BlowOut2.Models.Instrument
+@*@using WebMatrix.Data;*@
+@{
+    //var db = Database.Open("BlowOut");
+    ViewBag.conditionN = "New";
+    ViewBag.conditionU = "Used";
+    var queryNewID = "SELECT instrumentID FROM Instrument WHERE condition = '@ViewBag.conditionN' AND instrumentName='@ViewBag.instrumentName'";
+    var queryUsedID = "SELECT instrumentID FROM Instrument WHERE condition = '@ViewBag.conditionU' AND instrumentName='@ViewBag.instrumentName'";
+}
+
+<h2>Rent this @ViewBag.instrumentName</h2>
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <div class="thumbnail">
+            <img src="@ViewBag.imgPath" />
+        </div>
+        <h1><u>@ViewBag.instrumentName</u></h1>
+        <h3>Do you want to rent a <strong>new</strong> or <strong>used</strong> @ViewBag.instrumentName?</h3>
+        <button type="button" class="btn btn-lg" onclick="NewPrice()">New</button>
+        <button type="button" class="btn btn-lg" onclick="UsedPrice()">Used</button>
+        <h2><u>Price</u></h2>
+        <h3 id="new" class="hidden">@ViewBag.NewPrice</h3>
+        <button id="newbtn" type="button" class="btn btn-lg hidden" onclick="location.href='@Url.Action("Create", "Clients", new { name = (string)ViewBag.Name, price = (string)ViewBag.NewPrice })'">Rent this <strong>New</strong> @ViewBag.Name</button>
+        <h3 id="used" class="hidden">@ViewBag.UsedPrice</h3>
+        <button id="usedbtn" type="button" class="btn btn-lg hidden" onclick="location.href='@Url.Action("Create", "Clients", new { name = (string)ViewBag.Name, price = (string)ViewBag.UsedPrice })'">Rent this <strong>Used</strong> @ViewBag.Name</button>
+        <p id="message" class="text-warning hidden">
+            After 18 months leasing the instrument is yours to keep! For returns within 3 months a $200 re-stocking fee applies. After 3 months renter forfeits all equity.
+        </p>
+    </div>
+    <div class="col-md-3"></div>
+</div>
+<script>
+    function NewPrice() {
+
+        if (jQuery('#used').hasClass('visible')) {
+            $('#used').addClass('hidden');
+            $('#usedbtn').addClass('hidden');
+        }
+
+        jQuery('#new').removeClass('hidden').addClass('visible');
+        $('#message').removeClass('hidden');
+        $('#newbtn').removeClass('hidden');
+    }
+
+    function UsedPrice() {
+
+        if (jQuery('#new').hasClass('visible')) {
+            $('#new').addClass('hidden');
+            $('#newbtn').addClass('hidden');
+        }
+
+        jQuery('#used').removeClass('hidden').addClass('visible');
+        $('#message').removeClass('hidden');
+        $('#usedbtn').removeClass('hidden');
+    }
+</script>
