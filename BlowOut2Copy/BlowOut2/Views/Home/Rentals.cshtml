@@ -8,12 +8,12 @@
 </ol>
 <h2>Instrument Rentals</h2>
 
-<div class="container">
+@*<div class="container">
 	<div class="row">
     @foreach (var item in Model)
 	{
-        if(item.condition == "New")
-        {
+        //if(item.condition == "New")
+        //{
             <div class="col-md-4">
                 <div class="thumbnail">
                     <img src="@Html.DisplayFor(modelItem => item.imgPath)">
@@ -25,9 +25,29 @@
                     </div>
                 </div>
             </div>
-        }
+        //}
         
 	}
+    </div>
+</div>*@
+<div class="container">
+    <div class="row">
+
+        @foreach (var item in Model)
+        {
+            <div class="col-xs-4">
+                <a href='@Url.Action("Create", "Clients", new { instrumentID = item.instrumentID })'>
+                    <h1 class="text-center">
+                        @Html.DisplayFor(modelItem => item.condition)
+                        @Html.DisplayFor(modelItem => item.instrumentName)
+                    </h1>
+                    <div class="library_img">
+                        <img src="@Html.DisplayFor(modelItem => item.imgPath)" class="library_img" style="height:250px" />
+                        <h2 class="text-center">Price: $@Html.DisplayFor(modelItem => item.price)</h2>
+                    </div>
+                </a>
+            </div>
+        }
     </div>
 </div>
 

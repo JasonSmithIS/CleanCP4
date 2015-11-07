@@ -1,0 +1,58 @@
+﻿@model BlowOut2.Models.Instrument
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Instrument</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.instrumentName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.instrumentName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.condition)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.condition)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.imgPath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.imgPath)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.clientID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.clientID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.instrumentID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
