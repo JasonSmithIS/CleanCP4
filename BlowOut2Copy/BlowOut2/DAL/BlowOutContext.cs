@@ -13,6 +13,7 @@ namespace BlowOut2.DAL
         {
 
         }
+        //Defines the two DB tables as object classes
         public DbSet<Instrument> Instruments { get; set; }
         public DbSet<Client> Clients { get; set; }
     }

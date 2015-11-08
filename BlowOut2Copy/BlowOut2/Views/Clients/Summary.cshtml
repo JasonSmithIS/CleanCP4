@@ -1,10 +1,153 @@
-﻿
+﻿@model BlowOut2.Models.Client
 @{
     ViewBag.Title = "Summary";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<!--Checkpoint 3 BreadCrumb to navigate back to another page-->
+<ol class="breadcrumb">
+    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+    <li>@Html.ActionLink("Instrument Rentals", "Rentals", "Home")</li>
+    <li>Customer Info</li>
+    <li class="active">Order Summary</li>
+</ol>
 
-<h2>Summary</h2>
+<h2>Rental Summary</h2>
+<div class="row">
+    @*<div class="col-md-3"></div>*@
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <img src="@ViewBag.Instrument.imgPath" style="height:250px;width:250px" class="img-responsive" />
+            </div>
+            <div class="panel-body">
+                <p>
+                    After 18 months leasing the instrument is yours to keep! For returns within 3 months a $200 re-stocking fee applies. After 3 months renter forfeits all equity.
+                </p>
+            </div>
+            @*<div class="panel-footer">
+                
+            </div>*@
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="panel panel-default">
+            <!-- Customer Information Panel -->
+            <div class="panel-heading">
+                <h3>Thank you @Html.DisplayFor(model => model.clientFirstName)
+                 @Html.DisplayFor(model => model.clientLastName) for your order</h3>
+                <h4>Please review your order information</h4>
+            </div>
+            <!-- Customer Information Table -->
+            <dl class="dl-horizontal">
 
-@ViewBag.client.clientFirstName
-@ViewBag.Instrument.instrumentName
+                <dt>
+                    @Html.DisplayNameFor(model => model.clientFirstName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.clientFirstName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.clientLastName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.clientLastName)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.clientPhoneNum)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.clientPhoneNum)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.clientEmail)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.clientEmail)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.address)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.address)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.city)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.city)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.state)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.state)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.zip)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.zip)
+                </dd>
+
+                </dl><hr />
+
+            <dl class="dl-horizontal">
+
+                <dt>
+                    OrderID:
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.clientID)
+                </dd>
+
+                <dt>
+                    Instrument:
+                </dt>
+
+                <dd>
+                    @ViewBag.Instrument.instrumentName
+                </dd>
+
+                <dt>
+                    Condition:
+                </dt>
+
+                <dd>
+                    @ViewBag.Instrument.condition
+                </dd>
+
+                <dt>
+                    Monthly Price:
+                </dt>
+
+                <dd>
+                    @ViewBag.Instrument.price
+                </dd>
+
+                <dt>
+                    18 Month Price:
+                </dt>
+
+                <dd>
+                    @(18 * ViewBag.Instrument.price)
+                </dd>
+
+            </dl>
+        </div>
+    </div>
+</div>

@@ -1,11 +1,12 @@
-﻿@model BlowOut2.Models.Instrument
+﻿<!--Not used in Checkpoint 4-->
+@model BlowOut2.Models.Instrument
 @*@using WebMatrix.Data;*@
 @{
     //var db = Database.Open("BlowOut");
     ViewBag.conditionN = "New";
     ViewBag.conditionU = "Used";
-    var queryNewID = "SELECT instrumentID FROM Instrument WHERE condition = '@ViewBag.conditionN' AND instrumentName='@ViewBag.instrumentName'";
-    var queryUsedID = "SELECT instrumentID FROM Instrument WHERE condition = '@ViewBag.conditionU' AND instrumentName='@ViewBag.instrumentName'";
+    @*var queryNewID = "SELECT instrumentID FROM Instrument WHERE condition = '@ViewBag.conditionN' AND instrumentName='@ViewBag.instrumentName'";
+    var queryUsedID = "SELECT instrumentID FROM Instrument WHERE condition = '@ViewBag.conditionU' AND instrumentName='@ViewBag.instrumentName'";*@
 }
 
 <h2>Rent this @ViewBag.instrumentName</h2>

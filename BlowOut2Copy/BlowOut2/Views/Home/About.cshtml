@@ -1,23 +1,31 @@
 ﻿@{
-    ViewBag.Title = "About";
+    ViewBag.Title = "About Us";
 }
-<h2>@ViewBag.Title.</h2>
+<!--Checkpoint 3 BreadCrumb to navigate back to another page-->
+<ol class="breadcrumb">
+    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+    <li class="active">@Html.ActionLink("About Us", "About", "Home")</li>
+</ol>
+<h2>@ViewBag.Title</h2>
 <h2>Blow Out Instruments</h2>
-<p>
-    Blow Out Instruments, was started in 1935 by Dave Wilson when his his first son was 13.
-     He was surprised by the outragous cost of renting an instrument for his son to learn, and decided he could do something to providing
-    quality new and used intrument rentals for everyone. With over 7,000 instruments in our 
-    inventory, we have been able to provide afforadable rental instruments for over 45 years. 
-</p>
-<p>
-    Blow Out Instruments was founded with the idea and hope of being able to provide affordable
-    rentals for all who want to gain a musical talent. Fredrick was raised with a musically talented
-    mother, and an equally talented businessman for a father. Noticing that many schools had music
-    and band programs, Fredrick set out to provide the best instrumental rental service possible.
-    And he has!
-</p>
-<p>
-    Blow Out Instruments has received numerous awards in its 46 year history. Most noteable, in 2014
-    Blow Out received a "Best of" award for all music stores in the United States, specifically for
-    Customer Satsifaction and Rental Instrument Value.
-</p>
+<div class="row">
+    <div class="col-md-6">
+        <img src="~/Content/img/founder.jpeg" alt="Founder Image" class="img-responsive" />
+    </div>
+    <div class="col-md-6">
+        <p>
+            Blow Out Instruments, was started in 2000 by Dave Wilson when his his first son was 13.
+            He was surprised by the outragous cost of renting an instrument for his son to learn,
+            and decided he could do something to provide quality new and used intrument rentals for everyone.
+            With over 10 instruments in our inventory, we look forward to serving you and your children with
+            afforadable rental instruments.
+        </p>
+        <p>
+            Blow Out Instruments was founded with the idea and hope of being able to provide affordable
+            rentals for all who want to gain a musical talent. Dave raised his children with his musically talented
+            wife. Noticing that many schools had music and band programs, but failed to provide an
+            economocal method of obtaining instruments, Dave set out to provide the best instrumental rental service possible.
+            And our customers tell us that he has!
+        </p>
+    </div>
+</div>

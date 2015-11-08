@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title Musical Instrument Rentals</title>
+    <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/custom.css")
     @Scripts.Render("~/bundles/modernizr")
@@ -23,11 +23,12 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Rentals", "Rentals", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Instrument Rentals", "Rentals", "Home")</li>
+                    <li>@Html.ActionLink("About Us", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact Us", "Contact", "Home")</li>
                 </ul>
-                @Html.Partial("_LoginPartial")
+                <!--Not Needed for Checkpoint 4, Removes login Signup from the Navbar-->
+                @*@Html.Partial("_LoginPartial")*@
             </div>
         </div>
     </div>
@@ -35,7 +36,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - BlueFlame Tech, LLC</p>
+            <p>&copy; @DateTime.Now.Year - Smith Family Enterprises</p>
         </footer>
     </div>
 

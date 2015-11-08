@@ -35,40 +35,52 @@ namespace BlowOut2.Controllers
             }
             return View(client);
         }
-
-        // GET: Clients/Create
-        public ActionResult Create()
+        //Summary Action Method, which accepts the ClientID, and Instrument ID from the Client Create View
+        public ActionResult Summary(int? ClientID, int? InstrumentID)
         {
-            return View();
-        }
-        public ActionResult Summary(int ClientID, int InstrumentID)
-        {
+            //Looks up the Client by the ClientID that was passed in
             Client client = db.Clients.Find(ClientID);
+            //Looks up the Instrument by the InstrumentID that was passed in
             Instrument Instrument = db.Instruments.Find(InstrumentID);
-
+            //Creates Viewbag objects from the Client Object found
             ViewBag.Client = client;
+            //Creates a Viewbag object from the Instrument object found
             ViewBag.Instrument = Instrument;
-            return View();
+            return View(client);
         }
-        //public ActionResult Create(int InstrumentID)
+        // GET: Clients/Create
+        //public ActionResult Create()
         //{
         //    return View();
         //}
+        public ActionResult Create(int? InstrumentID)
+        {
+            //Looks up the Instrument by the InstrumentID that was passed in
+            Instrument Instrument = db.Instruments.Find(InstrumentID);
+            //Creates a Viewbag object from the Instrument object found
+            ViewBag.Instrument = Instrument;
+            return View();
+        }
         // POST: Clients/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "clientID,clientLastName,clientFirstName,clientPhoneNum,clientEmail,address,city,state,zip")] Client client, int InstrumentID)
+        public ActionResult Create([Bind(Include = "clientID,clientLastName,clientFirstName,clientPhoneNum,clientEmail,address,city,state,zip")] Client client, int? InstrumentID)
         {
             if (ModelState.IsValid)
             {
+                //Adds the new client to the database
                 db.Clients.Add(client);
+                //Saves the changes to the Database
                 db.SaveChanges();
+                //Looks up the Instrument in the Database
                 Instrument Instrument = db.Instruments.Find(InstrumentID);
+                //Sets the value for the clientID in the Instruments table to assign a borrower
                 Instrument.clientID = client.clientID;
+                //Saves changes to the Instruments DB
                 db.SaveChanges();
-
+                //Sends the user to the transaction summary page, and passes in the Client, and Instrument ID's
                 return RedirectToAction("Summary", new {ClientID = client.clientID, InstrumentID = Instrument.instrumentID });
             }
 

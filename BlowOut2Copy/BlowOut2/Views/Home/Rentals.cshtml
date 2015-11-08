@@ -1,56 +1,80 @@
-﻿@model IEnumerable<BlowOut2.Models.Instrument>
+﻿<!--Creates a model object that can be iterated through-->
+@model IEnumerable<BlowOut2.Models.Instrument>
+<!--Page Title-->
 @{
     ViewBag.Title = "Rentals";
 }
+<!--Checkpoint 3 BreadCrumb to navigate back to another page-->
 <ol class="breadcrumb">
     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-    <li class="active">@Html.ActionLink("Rentals", "Rentals", "Instruments")</li>
+    <li class="active">@Html.ActionLink("Instrument Rentals", "Rentals", "Home")</li>
 </ol>
+<!--Header-->
 <h2>Instrument Rentals</h2>
 
-@*<div class="container">
-	<div class="row">
-    @foreach (var item in Model)
-	{
-        //if(item.condition == "New")
-        //{
-            <div class="col-md-4">
-                <div class="thumbnail">
-                    <img src="@Html.DisplayFor(modelItem => item.imgPath)">
-                    <div class="caption">
-                        <h3>@Html.DisplayFor(modelItem => item.instrumentName)</h3>
-                        <p>
-                            <button type="button" class="btn btn-lg" onclick="location.href='@Url.Action("RentalItem", "Instruments", new { insName = item.instrumentName })'">Get More Details</button>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        //}
-        
-	}
-    </div>
-</div>*@
+<!--Fully Dynamic Instrument view -- more simple-->
 <div class="container">
     <div class="row">
-
-        @foreach (var item in Model)
-        {
-            <div class="col-xs-4">
-                <a href='@Url.Action("Create", "Clients", new { instrumentID = item.instrumentID })'>
-                    <h1 class="text-center">
-                        @Html.DisplayFor(modelItem => item.condition)
-                        @Html.DisplayFor(modelItem => item.instrumentName)
-                    </h1>
-                    <div class="library_img">
-                        <img src="@Html.DisplayFor(modelItem => item.imgPath)" class="library_img" style="height:250px" />
-                        <h2 class="text-center">Price: $@Html.DisplayFor(modelItem => item.price)</h2>
+        <div class="panel panel-group">
+            <!--Iterates through each Item in the model-->
+            @foreach (var item in Model)
+            {
+                <div class="col-xs-4">
+                    <div class="panel-default">
+                        <!--Makes each Intrument image a link that directs you to create a client, and passes the Instrument ID-->
+                        <a href='@Url.Action("Create", "Clients", new { instrumentID = item.instrumentID })'>
+                            <!--Shows Item Attributes-->
+                            <div class="panel-heading">
+                                <h1 class="text-center">
+                                    @Html.DisplayFor(modelItem => item.condition)
+                                    @Html.DisplayFor(modelItem => item.instrumentName)
+                                </h1>
+                            </div>
+                            <!--Shows the Item Picture-->
+                            <div class="panel-body">
+                                <div class="center-block">
+                                    <img src="@Html.DisplayFor(modelItem => item.imgPath)" class="img-responsive" style="height:250px" />
+                                    <!--Shows the item price-->
+                                    
+                                </div>
+                            </div>
+                                <div class="panel-footer">
+                                    <h2 class="text-center">Price: $@Html.DisplayFor(modelItem => item.price)</h2>
+                                </div>
+                            </a>
                     </div>
-                </a>
-            </div>
-        }
+                </div>
+            }
+        </div>
     </div>
 </div>
+<!--6 Instrument view dynamic from model -- more complicated-->
+@*<div class="container">
+        <div class="row">
+        <!--Iterates through each item in the model-->
+        @foreach (var item in Model)
+        {
+            <!--Checks to see if the condition is New to display only new items-->
+            if(item.condition == "New")
+            {
+                <!--Displays each item image, and information-->
+                <div class="col-md-4">
+                    <div class="thumbnail">
+                        <img src="@Html.DisplayFor(modelItem => item.imgPath)">
+                        <div class="caption">
+                            <h3>@Html.DisplayFor(modelItem => item.instrumentName)</h3>
+                            <p>
+                                <button type="button" class="btn btn-lg" onclick="location.href='@Url.Action("RentalItem", "Instruments", new { insName = item.instrumentName })'">Get More Details</button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            //}
 
+        }
+        </div>
+    </div>*@
+<!--Checkpoint 3 Hardcoded Instrument View-->
 <!--<div class="row">
     <div class="col-md-4">
         <div class="thumbnail">
