@@ -13,11 +13,11 @@
 <!--Page Header-->
 <h2>Rental Application to rent this @ViewBag.Instrument.condition @ViewBag.Instrument.instrumentName</h2>
 <div class="row">
-    <div class="col-md-4">
-        <div>
-            <img src="@ViewBag.Instrument.imgPath" style="height:250px;width:250px" class="img-responsive" />
+    <div class="col-sm-4">
+        <div class="text-center">
+            <img src="@ViewBag.Instrument.imgPath" style="height:250px;width:250px" class="hidden-xs" />
         </div>
-        <h2><u>Monthly Price</u></h2>
+        <h2>Monthly Price</h2>
         <h3>@ViewBag.Instrument.price</h3>
         <h2><u>18 Month Price</u></h2>
         <h3>@(18 * ViewBag.Instrument.price)</h3>
@@ -25,7 +25,7 @@
             After 18 months leasing the instrument is yours to keep! For returns within 3 months a $200 re-stocking fee applies. After 3 months renter forfeits all equity.
         </p>
     </div>
-    <div class="col-md-8">
+    <div class="col-sm-8">
         <!--Starts the Client form to accept user information-->
         @using (Html.BeginForm())
         {
@@ -112,5 +112,5 @@
     </div>
 </div>
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Rentals", "Home")
 </div>

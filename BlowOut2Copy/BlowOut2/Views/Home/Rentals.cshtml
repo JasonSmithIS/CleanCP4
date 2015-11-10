@@ -15,16 +15,16 @@
 <!--Fully Dynamic Instrument view -- more simple-->
 <div class="container">
     <div class="row">
-        <div class="panel panel-group">
+        <div>
             <!--Iterates through each Item in the model-->
             @foreach (var item in Model)
             {
-                <div class="col-xs-4">
-                    <div class="panel-default">
+                <div class="col-sm-4">
+                    <div class="panel panel-default">
                         <!--Makes each Intrument image a link that directs you to create a client, and passes the Instrument ID-->
                         <a href='@Url.Action("Create", "Clients", new { instrumentID = item.instrumentID })'>
                             <!--Shows Item Attributes-->
-                            <div class="panel-heading">
+                            <div class="panel-title">
                                 <h1 class="text-center">
                                     @Html.DisplayFor(modelItem => item.condition)
                                     @Html.DisplayFor(modelItem => item.instrumentName)
@@ -32,10 +32,10 @@
                             </div>
                             <!--Shows the Item Picture-->
                             <div class="panel-body">
-                                <div class="center-block">
+                                <div class="text-center">
                                     <img src="@Html.DisplayFor(modelItem => item.imgPath)" class="img-responsive" style="height:250px" />
                                     <!--Shows the item price-->
-                                    
+
                                 </div>
                             </div>
                                 <div class="panel-footer">

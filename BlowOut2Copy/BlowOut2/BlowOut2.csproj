@@ -189,6 +189,7 @@
     <Content Include="Content\img\founder.jpeg" />
     <Content Include="Content\img\Founder2.jpg" />
     <Content Include="Content\img\Founder3.jpg" />
+    <Content Include="Content\img\Jumbotron.jpg" />
     <Content Include="Content\img\Saxophone.png" />
     <Content Include="Content\img\Trombone.png" />
     <Content Include="Content\img\Trumpet.png" />

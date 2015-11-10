@@ -83,7 +83,8 @@ namespace BlowOut2.Controllers
                 //Sends the user to the transaction summary page, and passes in the Client, and Instrument ID's
                 return RedirectToAction("Summary", new {ClientID = client.clientID, InstrumentID = Instrument.instrumentID });
             }
-
+            Instrument oInstrument = db.Instruments.Find(InstrumentID);
+            ViewBag.Instrument = oInstrument;
             return View(client);
         }
 
