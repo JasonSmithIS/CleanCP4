@@ -7,6 +7,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace BlowOut2.Controllers
 {
@@ -42,6 +43,31 @@ namespace BlowOut2.Controllers
 
             return View();
         }
-        
+
+        // GET: Home
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(FormCollection form, bool rememberMe = false)
+        {
+            String email = form["Email address"].ToString();
+            String password = form["Password"].ToString();
+
+            if (string.Equals(email, "Missouri") && (string.Equals(password, "ShowMe")))
+            {
+                FormsAuthentication.SetAuthCookie(email, rememberMe);
+
+                return RedirectToAction("UpdateData", "Clients");
+
+            }
+            else
+            {
+                return View();
+            }
+        }
+
     }
 }

@@ -155,6 +155,8 @@ namespace BlowOut2.Controllers
             }
             base.Dispose(disposing);
         }
+
+        [Authorize]
         public ActionResult UpdateData()
         {
             IEnumerable<Rental> rental = db.Database.SqlQuery<Rental>("Select Client.clientID, clientLastName, clientFirstName, clientPhoneNum, clientEmail, address, city, state, zip, instrumentID, instrumentName, condition, price, imgPath from Client, Instrument where Instrument.clientID = Client.clientID");

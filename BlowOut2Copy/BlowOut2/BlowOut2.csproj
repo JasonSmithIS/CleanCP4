@@ -270,6 +270,7 @@
     <Content Include="Views\Instruments\Index.cshtml" />
     <Content Include="Views\Clients\Summary.cshtml" />
     <Content Include="Views\Clients\UpdateData.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
