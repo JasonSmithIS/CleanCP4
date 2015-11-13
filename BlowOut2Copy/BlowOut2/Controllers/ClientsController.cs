@@ -100,6 +100,7 @@ namespace BlowOut2.Controllers
             {
                 return HttpNotFound();
             }
+            
             return View(client);
         }
 
@@ -114,7 +115,7 @@ namespace BlowOut2.Controllers
             {
                 db.Entry(client).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("UpdateData");
             }
             return View(client);
         }
@@ -142,7 +143,8 @@ namespace BlowOut2.Controllers
             Client client = db.Clients.Find(id);
             db.Clients.Remove(client);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            db.Database.ExecuteSqlCommand("Update Instrument set Instrument.clientID = null where Instrument.clientID =" + id);
+            return RedirectToAction("UpdateData");
         }
 
         protected override void Dispose(bool disposing)
@@ -152,6 +154,12 @@ namespace BlowOut2.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        public ActionResult UpdateData()
+        {
+            IEnumerable<Rental> rental = db.Database.SqlQuery<Rental>("Select Client.clientID, clientLastName, clientFirstName, clientPhoneNum, clientEmail, address, city, state, zip, instrumentID, instrumentName, condition, price, imgPath from Client, Instrument where Instrument.clientID = Client.clientID");
+
+            return View(rental);
         }
     }
 }

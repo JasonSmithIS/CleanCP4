@@ -1,0 +1,98 @@
+﻿@model IEnumerable<BlowOut2.Models.Rental>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.clientLastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.clientFirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.clientPhoneNum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.clientEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.city)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.state)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.zip)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.clientID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.instrumentName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.condition)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.price)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.imgPath)
+        </th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.clientLastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.clientFirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.clientPhoneNum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.clientEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.city)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.state)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.zip)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.clientID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.instrumentName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.condition)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.price)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.imgPath)
+        </td>*@
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.clientID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.clientID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,4 +1,5 @@
 ﻿using BlowOut2.DAL;
+using BlowOut2.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -41,5 +42,6 @@ namespace BlowOut2.Controllers
 
             return View();
         }
+        
     }
 }
